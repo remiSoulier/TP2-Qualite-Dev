@@ -18,8 +18,24 @@ public class CommandeFactory {
 
     public Commande createCommand(String name, Document document, String[] parameters) {
         switch (name) {
-            case "ajouter" : return new CommandeAjouter(document, parameters);
-            default: return null;
+            case "ajouter" -> {
+                return new CommandeAjouter(document, parameters);
+            }
+            case "remplacer" -> {
+                if (parameters.length < 4) {
+                    String[] newParameters = new String[4];
+                    newParameters[0] = parameters[0];
+                    newParameters[1] = parameters[1];
+                    newParameters[2] = parameters[2];
+                    newParameters[3] = "";
+
+                    return new CommandeRemplacer(document, newParameters);
+                }
+                return new CommandeRemplacer(document, parameters);
+            }
+            default -> {
+                return null;
+            }
         }
     }
 
