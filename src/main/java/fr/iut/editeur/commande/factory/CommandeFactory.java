@@ -39,6 +39,9 @@ public class CommandeFactory {
             case "effacer" -> {
                 return new CommandeEffacer(document, parameters);
             }
+            case "clear" -> {
+                return new CommandeClear(document, parameters);
+            }
             default -> {
                 return null;
             }
