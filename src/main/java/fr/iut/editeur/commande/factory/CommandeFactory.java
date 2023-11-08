@@ -33,6 +33,9 @@ public class CommandeFactory {
                 }
                 return new CommandeRemplacer(document, parameters);
             }
+            case "majuscule" -> {
+                return new CommandeMajuscule(document, parameters);
+            }
             default -> {
                 return null;
             }
