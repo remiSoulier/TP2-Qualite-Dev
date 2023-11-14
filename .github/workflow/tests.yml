@@ -1,0 +1,18 @@
+name : test_automatiques # Nom du workflow
+
+on : [push] # Déclencheur du workflow
+
+jobs :
+  build :
+    runs-on : ubuntu-latest # Système d'exploitation utilisé
+
+    steps :
+    - uses : actions/checkout@v3 # Récupération du code source
+    - uses : actions/setup-java@v1 # Installation de Java
+      with :
+        java-version : 17
+    - name : Install dependencies # Installation des dépendances
+      run : npm install
+    - name : Run tests # Exécution des tests
+      run : npm test
+```
